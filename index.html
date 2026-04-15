@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dr. Guillermo Irrazabal - Abogado especializado en Accidentes de Trabajo ART, Derecho Laboral, Divorcios y Sucesiones. Alto Valle de Río Negro y Neuquén">
+    <meta name="keywords" content="abogado, ART, accidentes de trabajo, Neuquén, Río Negro, Cipolletti, derecho laboral, divorcios, sucesiones">
+    <title>Dr. Guillermo Irrazabal | Abogado - ART y Derecho Laboral</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primario: #1e3a8a;
+            --color-secundario: #c9a227;
+            --color-oscuro: #1f2937;
+            --color-claro: #f3f4f6;
+            --color-blanco: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--color-oscuro);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--color-primario) 0%, #2d5a87 100%);
+            color: var(--color-blanco);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-secundario);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-secundario);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-blanco);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--color-primario) 0%, #2d5a87 100%);
+            color: var(--color-blanco);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: var(--color-secundario);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .zona-atencion {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-secundario);
+            color: var(--color-primario);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Servicios */
+        .servicios {
+            padding: 4rem 0;
+            background: var(--color-claro);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--color-primario);
+            margin-bottom: 3rem;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .servicio-card {
+            background: var(--color-blanco);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--color-secundario);
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .servicio-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .servicio-card h3 {
+            color: var(--color-primario);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Formulario de Contacto */
+        .contacto {
+            padding: 4rem 0;
+            background: var(--color-blanco);
+        }
+
+        .contacto-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--color-claro);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-primario);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primario);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background: var(--color-primario);
+            color: var(--color-blanco);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #152a63;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            margin-top: 1rem;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128c7e;
+        }
+
+        /* Zonas de Cobertura */
+        .zonas {
+            padding: 3rem 0;
+            background: var(--color-primario);
+            color: var(--color-blanco);
+            text-align: center;
+        }
+
+        .zonas h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-secundario);
+        }
+
+        .ciudades {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .ciudad {
+            background: rgba(255,255,255,0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            border: 2px solid var(--color-secundario);
+        }
+
+        /* Información de Contacto */
+        .info-contacto {
+            padding: 3rem 0;
+            background: var(--color-oscuro);
+            color: var(--color-blanco);
+            text-align: center;
+        }
+
+        .info-contacto h2 {
+            color: var(--color-secundario);
+            margin-bottom: 2rem;
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contacto-item {
+            padding: 1.5rem;
+        }
+
+        .contacto-item h3 {
+            color: var(--color-secundario);
+            margin-bottom: 1rem;
+        }
+
+        .contacto-item a {
+            color: var(--color-blanco);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .contacto-item a:hover {
+            color: var(--color-secundario);
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--color-primario);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contacto-wrapper {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .servicio-card,
+        .contacto-wrapper {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Mensaje de éxito */
+        .success-message {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .error-message {
+            display: none;
+            background: #ef4444;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">?? Dr. Irrazabal</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#zonas">Zonas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Dr. Guillermo Irrazabal</h1>
+            <h2>ABOGADO</h2>
+            <p>Especialista en Accidentes de Trabajo (ART), Derecho Laboral, Divorcios y Sucesiones. Defensa profesional de sus derechos en Neuquén y Río Negro.</p>
+            <div class="zona-atencion">
+                <strong>?? Zona Alto Valle - Neuquén y Río Negro</strong>
+            </div>
+            <br>
+            <a href="#contacto" class="cta-button">Consultar Ahora</a>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="servicios" id="servicios">
+        <div class="container">
+            <h2 class="section-title">Áreas de Práctica</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-icon">??</div>
+                    <h3>ART - Accidentes de Trabajo</h3>
+                    <p>Reclamaciones por accidentes laborales y enfermedades profesionales. Indemnizaciones completas.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">??</div>
+                    <h3>Derecho Laboral</h3>
+                    <p>Despidos, trabajo en negro, horas extras, diferencias salariales y condiciones de trabajo.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">??</div>
+                    <h3>Divorcios</h3>
+                    <p>Divorcios express, cuota alimentaria, régimen de comunicación y liquidación de sociedad conyugal.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icon">??</div>
+                    <h3>Sucesiones</h3>
+                    <p>Trámites sucesorios, declaratoria de herederos, partición de bienes y testamentos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zonas de Cobertura -->
+    <section class="zonas" id="zonas">
+        <div class="container">
+            <h2>??? Zonas de Atención</h2>
+            <p style="font-size: 1.2rem;">Atendemos en todo el Alto Valle de Río Negro y Neuquén</p>
+            <div class="ciudades">
+                <div class="ciudad">Cipolletti</div>
+                <div class="ciudad">Neuquén Capital</div>
+                <div class="ciudad">Allen</div>
+                <div class="ciudad">Fernández Oro</div>
+                <div class="ciudad">Plottier</div>
+                <div class="ciudad">Cinco Saltos</div>
+                <div class="ciudad">Centenario</div>
+                <div class="ciudad">General Roca</div>
+                <div class="ciudad">Villa Regina</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto -->
+    <section class="contacto" id="contacto">
+        <div class="container">
+            <h2 class="section-title">Consulta Gratuita</h2>
+            <div class="contacto-wrapper">
+                <div class="success-message" id="successMessage">
+                    ? ¡Mensaje enviado con éxito! Me contactaré a la brevedad.
+                </div>
+                <div class="error-message" id="errorMessage">
+                    ? Por favor complete todos los campos obligatorios.
+                </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ingrese su nombre completo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 299 123 4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Ej: ejemplo@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad / Localidad *</label>
+                        <select id="ciudad" name="ciudad" required>
+                            <option value="">Seleccione su ciudad</option>
+                            <option value="Cipolletti">Cipolletti</option>
+                            <option value="Neuquén Capital">Neuquén Capital</option>
+                            <option value="Allen">Allen</option>
+                            <option value="Fernández Oro">Fernández Oro</option>
+                            <option value="Plottier">Plottier</option>
+                            <option value="Cinco Saltos">Cinco Saltos</option>
+                            <option value="Centenario">Centenario</option>
+                            <option value="General Roca">General Roca</option>
+                            <option value="Villa Regina">Villa Regina</option>
+                            <option value="Otra">Otra localidad</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipoCaso">Tipo de Caso / Servicio que necesita *</label>
+                        <select id="tipoCaso" name="tipoCaso" required onchange="mostrarDetalle()">
+                            <option value="">Seleccione el tipo de consulta</option>
+                            <option value="ART - Accidente de Trabajo">ART - Accidente de Trabajo</option>
+                            <option value="Enfermedad Profesional">Enfermedad Profesional</option>
+                            <option value="Despido">Despido</option>
+                            <option value="Trabajo en Negro">Trabajo en Negro</option>
+                            <option value="Diferencias Salariales">Diferencias Salariales</option>
+                            <option value="Divorcio">Divorcio</option>
+                            <option value="Cuota Alimentaria">Cuota Alimentaria</option>
+                            <option value="Sucesión">Sucesión</option>
+                            <option value="Otro">Otro tema legal</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="detalleCaso" style="display: none;">
+                        <label for="mensaje">Cuéntenos brevemente su caso *</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Describa su situación: fecha del accidente, tipo de lesión, empresa, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" required> 
+                            Acepto ser contactado por WhatsApp o teléfono para mi consulta
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Consulta</button>
+                </form>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="margin-bottom: 1rem; font-size: 1.1rem;">¿Prefiere contacto directo?</p>
+                    <a href="https://wa.me/5492996336650?text=Hola%20Dr.%20Irrazabal,%20necesito%20asesoramiento%20legal" 
+                       class="cta-button btn-whatsapp" target="_blank">
+                        ?? Contactar por WhatsApp
+                    </a>
+                    <p style="margin-top: 1rem; font-size: 1.2rem;">
+                        ?? <strong>Tel: 299 6336650</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información de Contacto -->
+    <section class="info-contacto">
+        <div class="container">
+            <h2>Información de Contacto</h2>
+            <div class="contacto-grid">
+                <div class="contacto-item">
+                    <h3>?? Teléfono / WhatsApp</h3>
+                    <a href="tel:+5492996336650">299 6336650</a>
+                </div>
+                <div class="contacto-item">
+                    <h3>?? Email</h3>
+                    <a href="mailto:guillermo_irrazabal@hotmail.com">guillermo_irrazabal@hotmail.com</a>
+                </div>
+                <div class="contacto-item">
+                    <h3>?? Dirección</h3>
+                    <p>Estudio Jurídico SI Abogados<br>
+                    Alem 125, Cipolletti, RN</p>
+                </div>
+                <div class="contacto-item">
+                    <h3>? Horario de Atención</h3>
+                    <p>Lunes a Viernes<br>
+                    9:00 - 18:00 hs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Dr. Guillermo Irrazabal - Abogado. Todos los derechos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Estudio Jurídico SI Abogados - Cipolletti, Río Negro</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menú responsive
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer click en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Mostrar campo de detalle según tipo de caso
+        function mostrarDetalle() {
+            const tipoCaso = document.getElementById('tipoCaso').value;
+            const detalleCaso = document.getElementById('detalleCaso');
+            const mensaje = document.getElementById('mensaje');
+            
+            if (tipoCaso) {
+                detalleCaso.style.display = 'block';
+                // Personalizar placeholder según tipo de caso
+                const placeholders = {
+                    'ART - Accidente de Trabajo': 'Describa: fecha del accidente, lugar, tipo de lesión, si recibió atención médica, etc.',
+                    'Enfermedad Profesional': 'Describa: síntomas, tiempo de evolución, puesto de trabajo, si fue diagnosticada, etc.',
+                    'Despido': 'Describa: fecha de despido, antigüedad, salario, causa invocada, si le entregaron documentación, etc.',
+                    'Trabajo en Negro': 'Describa: tiempo trabajado, tareas, horario, salario percibido, testigos, etc.',
+                    'Divorcio': 'Describa: si hay hijos, bienes, si es de mutuo acuerdo, etc.',
+                    'Sucesión': 'Describa: fecha de fallecimiento, herederos, bienes, si hay testamento, etc.'
+                };
+                mensaje.placeholder = placeholders[tipoCaso] || 'Describa brevemente su caso';
+            } else {
+                detalleCaso.style.display = 'none';
+            }
+        }
+
+        // Manejo del formulario
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Validación básica
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const ciudad = document.getElementById('ciudad').value;
+            const tipoCaso = document.getElementById('tipoCaso').value;
+            
+            if (!nombre || !telefono || !ciudad || !tipoCaso) {
+                errorMsg.style.display = 'block';
+                successMsg.style.display = 'none';
+                setTimeout(() => {
+                    errorMsg.style.display = 'none';
+                }, 5000);
+                return;
+            }
+            
+            // Aquí iría el código para enviar el formulario a un servidor
+            // Por ahora simulamos el envío exitoso
+            successMsg.style.display = 'block';
+            errorMsg.style.display = 'none';
+            
+            // Limpiar formulario
+            this.reset();
+            document.getElementById('detalleCaso').style.display = 'none';
+            
+            // Scroll al mensaje
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 8000);
+        });
+
+        // Smooth scroll para enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Agregar animación al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animar
+        document.querySelectorAll('.servicio-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s, transform 0.6s';
+            observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>
